@@ -36,18 +36,17 @@ def getLaneCurve(img, display=2):
         imgInvWarp = cv2.cvtColor(imgInvWarp, cv2.COLOR_GRAY2BGR)
         imgInvWarp[0:hT // 3, 0:wT] = 0, 0, 0
         imgLaneColor = np.zeros_like(img)
-        imgLaneColor[:] = 0, 0, 255  # Blue color for the lane line
+        imgLaneColor[:] = 0, 0, 255  
         imgLaneColor = cv2.bitwise_and(imgInvWarp, imgLaneColor)
         imgResult = cv2.addWeighted(imgResult, 1, imgLaneColor, 1, 0)
         midY = hT
         cv2.putText(imgResult, str(curve), (wT // 2 - 80, 85), cv2.FONT_HERSHEY_COMPLEX, 2, (255, 0, 255), 3)
         cv2.line(imgResult, (wT // 2, midY), (wT // 2 + (curve * 3), midY), (0, 0, 255), 5)  # Blue color for the line
-        cv2.line(imgResult, ((wT // 2 + (curve * 3)), midY - 25), (wT // 2 + (curve * 3), midY + 25), (255, 0, 0),
-                 5)  # Red color for the boundary
+        cv2.line(imgResult, ((wT // 2 + (curve * 3)), midY - 25), (wT // 2 + (curve * 3), midY + 25), (255, 0, 0),5)
         for x in range(-30, 30):
             w = wT // 20
             cv2.line(imgResult, (w * x + int(curve // 50), midY - 10),
-                     (w * x + int(curve // 50), midY + 10), (255, 0, 0), 2)  # Red color for the lines
+                     (w * x + int(curve // 50), midY + 10), (255, 0, 0), 2) 
     if display == 2:
         imgStacked = utlis.stackImages(0.7, ([img, imgWarpPoints, imgWarp],
                                              [imgHist, imgLaneColor, imgResult]))
@@ -55,7 +54,6 @@ def getLaneCurve(img, display=2):
     elif display == 1:
         cv2.imshow('Result', imgResult)
 
-    #### NORMALIZATION
     curve = curve / 100
     if curve > 1:
         curve = 1

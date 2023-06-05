@@ -4,24 +4,13 @@ from MotorModule_new import Motor
 
 pygame.init()
 
-# Initialize the joystick
 joystick = pygame.joystick.Joystick(0)
 joystick.init()
-
-# Xbox Joystick Axis:
-# Axis 0 up down, down value is -1, up value is 1
-# Axis 1 Left, Right, Left value is: -1, right value is 1
-# center is always 0
-
-##################
-motor = Motor(2, 3, 4, 17, 22, 27, 14, 15, 18)
-
-# Previous joystick values
+motor = Motor(10, 9, 11, 17, 22, 27, 14, 15, 18)
 prev_x, prev_y = joystick.get_axis(0), joystick.get_axis(1)
 
 # Main Loop
 while True:
-    # Check for joystick events
     for event in pygame.event.get():
         if event.type == pygame.JOYBUTTONDOWN:
             if event.button == 0:
@@ -45,21 +34,17 @@ while True:
             elif event.button == 8:
                 print("button 8 down")
 
-    # Check the joystick's axis values
     x, y = joystick.get_axis(0), joystick.get_axis(1)
     if x != prev_x or y != prev_y:
-        if abs(x) > abs(y) and abs(x) > 0.35:
+        if abs(x) > abs(y) and abs(x) > 0.15:
             y = 0
             print(f"Joystick values: x={x}, y={y}")
-            # Move the motors according to the joystick's axis values
-            motor.move(y, x, 0.1)
-        elif abs(y) > abs(x) and abs(y) > 0.35:
+            motor.move(y*0.4, x*0.4, 0.1)
+        elif abs(y) > abs(x) and abs(y) > 0.15:
             x = 0
             print(f"Joystick values: x={x}, y={y}")
-            # Move the motors according to the joystick's axis values
-            motor.move(y , x, 0.1)
+            motor.move(y*0.4 , x*0.4, 0.1)
         else:
             print(f"Joystick values: x={x}, y={y}")
-            motor.move(y,  x, 0.1)
-        # Update previous joystick values
+            motor.move(0,  0, 0.1)
         prev_x, prev_y = x, y

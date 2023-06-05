@@ -5,7 +5,7 @@ import numpy as np
 def thresholding(img):
     imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     imgBlur = cv2.GaussianBlur(imgGray, (5, 5), 0)
-    _, imgThresh = cv2.threshold(imgBlur, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)  # Modify the threshold values here
+    _, imgThresh = cv2.threshold(imgBlur, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
     return imgThresh
 
 
