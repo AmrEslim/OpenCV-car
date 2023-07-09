@@ -24,7 +24,7 @@ def nothing(a):
     pass
 
 
-def initializeTrackbars(intialTracbarVals, wT=240, hT=180):
+def initializeTrackbars(intialTracbarVals, wT=160, hT=120):
     cv2.namedWindow("Trackbars")
     cv2.resizeWindow("Trackbars", 300, 180)
     cv2.createTrackbar("Width Top", "Trackbars", intialTracbarVals[0], wT // 2, nothing)
@@ -33,11 +33,20 @@ def initializeTrackbars(intialTracbarVals, wT=240, hT=180):
     cv2.createTrackbar("Height Bottom", "Trackbars", intialTracbarVals[3], hT, nothing)
 
 
-def valTrackbars(wT=240, hT=180):
-    widthTop = cv2.getTrackbarPos("Width Top", "Trackbars")
-    heightTop = cv2.getTrackbarPos("Height Top", "Trackbars")
-    widthBottom = cv2.getTrackbarPos("Width Bottom", "Trackbars")
-    heightBottom = cv2.getTrackbarPos("Height Bottom", "Trackbars")
+#def valTrackbars(wT=240, hT=180):
+#    widthTop = cv2.getTrackbarPos("Width Top", "Trackbars")
+#    heightTop = cv2.getTrackbarPos("Height Top", "Trackbars")
+#    widthBottom = cv2.getTrackbarPos("Width Bottom", "Trackbars")
+#    heightBottom = cv2.getTrackbarPos("Height Bottom", "Trackbars")
+#    points = np.float32([(widthTop, heightTop), (wT - widthTop, heightTop),
+#                         (widthBottom, heightBottom), (wT - widthBottom, heightBottom)])
+#    return points
+
+def valTrackbars(wT=160, hT=120):
+    widthTop = 20   
+    heightTop = 85
+    widthBottom = 5
+    heightBottom = 119
     points = np.float32([(widthTop, heightTop), (wT - widthTop, heightTop),
                          (widthBottom, heightBottom), (wT - widthBottom, heightBottom)])
     return points

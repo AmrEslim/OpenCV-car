@@ -22,10 +22,9 @@ class Motor():
  
     def move(self,speed=0.5,turn=0,t=0):
         speed *=100
-        turn *=70
+        turn *=80
         leftSpeed = speed-turn
         rightSpeed = speed+turn
- 
         if leftSpeed>100: leftSpeed =100
         elif leftSpeed<-100: leftSpeed = -100
         if rightSpeed>100: rightSpeed =100
@@ -56,5 +55,5 @@ def main():
     motor.stop(2)
  
 if __name__ == '__main__':
-    motor = Motor(10, 9, 11, 17, 22, 27)
+    motor = Motor(10, 9, 11, 17, 27, 22)
     main()
