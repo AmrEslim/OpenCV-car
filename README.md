@@ -2,11 +2,13 @@
 
 
 
-## Getting started
+## Introduction
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+To make it easy for you to get started with our project, here's a list of recommended next steps.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+This repository is part of OmniCar project and represents program for Arduino MEGA that solves omni platform kinematics to get wheel odometry solution and reach desired velocity. It utilitizes PID-controllers based on feedback from incremental encoders to control JGB37-520 DC motors. Also it can communicate via UART in half-duplex mode.
+
+ Want to make it easy [Use the template at the bottom](#editing-this-readme)!
 
 ## Add your files
 
