@@ -33,20 +33,20 @@ def initializeTrackbars(intialTracbarVals, wT=160, hT=120):
     cv2.createTrackbar("Height Bottom", "Trackbars", intialTracbarVals[3], hT, nothing)
 
 
-#def valTrackbars(wT=240, hT=180):
-#    widthTop = cv2.getTrackbarPos("Width Top", "Trackbars")
-#    heightTop = cv2.getTrackbarPos("Height Top", "Trackbars")
-#    widthBottom = cv2.getTrackbarPos("Width Bottom", "Trackbars")
-#    heightBottom = cv2.getTrackbarPos("Height Bottom", "Trackbars")
-#    points = np.float32([(widthTop, heightTop), (wT - widthTop, heightTop),
-#                         (widthBottom, heightBottom), (wT - widthBottom, heightBottom)])
-#    return points
+def valTrackbars1(wT=160, hT=120):
+    widthTop = cv2.getTrackbarPos("Width Top", "Trackbars")
+    heightTop = cv2.getTrackbarPos("Height Top", "Trackbars")
+    widthBottom = cv2.getTrackbarPos("Width Bottom", "Trackbars")
+    heightBottom = cv2.getTrackbarPos("Height Bottom", "Trackbars")
+    points = np.float32([(widthTop, heightTop), (wT - widthTop, heightTop),
+                         (widthBottom, heightBottom), (wT - widthBottom, heightBottom)])
+    return points
 
 def valTrackbars(wT=160, hT=120):
-    widthTop = 20   
-    heightTop = 85
-    widthBottom = 5
-    heightBottom = 119
+    widthTop = 36   
+    heightTop = 56
+    widthBottom = 7
+    heightBottom = 94
     points = np.float32([(widthTop, heightTop), (wT - widthTop, heightTop),
                          (widthBottom, heightBottom), (wT - widthBottom, heightBottom)])
     return points

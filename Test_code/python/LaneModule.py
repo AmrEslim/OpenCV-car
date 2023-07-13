@@ -3,6 +3,10 @@ import numpy as np
 import utlis
 import WebcamModule
 from MotorModule import Motor
+import os
+
+
+os.environ["SDL_VIDEODRIVER"] = "dummy"
 
 curveList = []
 avgVal = 10
@@ -43,13 +47,19 @@ def getLaneCurve(img, display):
            cv2.line(imgResult, (w * x + int(curve // 50), midY - 10), (w * x + int(curve // 50), midY + 10), (255, 0, 0), 2)  # Red color for the lines
         cv2.imshow('Result', imgResult)
         key = cv2.waitKey(1)
+    elif display == 2:
+        imgWarpPoints = utlis.drawPoints(imgCopy, points)
+        imgStacked = utlis.stackImages(0.7, ([img, imgWarpPoints, imgWarp]))
+        cv2.imshow('ImageStack', imgStacked)
+        key = cv2.waitKey(1)
     return curve
 
 
 if __name__ == '__main__':
-    intialTrackBarVals = [36, 54, 10, 110]
+    intialTrackBarVals = [36, 56, 7, 94]
+    utlis.initializeTrackbars(intialTrackBarVals)
     
     while True:
         img = WebcamModule.getImg()
-        curve = getLaneCurve(img, 1)
+        curve = getLaneCurve(img, 0)
         print(curve)
