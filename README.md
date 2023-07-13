@@ -2,11 +2,13 @@
 
 
 
-## Getting started
+## Introduction
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+To make it easy for you to get started with our project, here's a list of recommended next steps.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+This repository is a part of OmniCar project and represents the start with openCV on Raspberry Pi 3 B+ that solves omni kinematics to give him the possibility in order to be able to move in all directions and to develop an automatic guidance system for him to drive in paths drawn for him and by identifying them through the OpenCV camera he will be able to move on his own.
+
+ Want to make it easy [Use the template at the bottom](#editing-this-readme)!
 
 ## Add your files
 
