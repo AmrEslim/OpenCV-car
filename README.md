@@ -121,7 +121,7 @@ If you encounter any issues or have questions:
 
 ## Project Status
 
-This project is actively maintained and under development. New features and improvements are regularly added.
+This project was maintained and under development as a Uni Project.
 
 ---
 
